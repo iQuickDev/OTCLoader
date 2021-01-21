@@ -63,10 +63,39 @@ namespace OTCLoader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DiscordRPC {
+            get {
+                object obj = ResourceManager.GetObject("DiscordRPC", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Guna_UI2 {
             get {
                 object obj = ResourceManager.GetObject("Guna_UI2", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  
+        ///  &quot;username&quot;: &quot;OTC Loader&quot;,
+        ///  &quot;embeds&quot;: [
+        ///    {
+        ///      &quot;description&quot;: &quot;Someone opened the loader!&quot;,
+        ///      &quot;title&quot;: &quot;Loader Launched&quot;,
+        ///      &quot;color&quot;: &quot;1623894&quot;
+        ///    }
+        ///  ]
+        ///}.
+        /// </summary>
+        internal static string Json {
+            get {
+                return ResourceManager.GetString("Json", resourceCulture);
             }
         }
         
@@ -76,6 +105,16 @@ namespace OTCLoader.Properties {
         internal static System.IO.UnmanagedMemoryStream load {
             get {
                 return ResourceManager.GetStream("load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Newtonsoft_Json {
+            get {
+                object obj = ResourceManager.GetObject("Newtonsoft_Json", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

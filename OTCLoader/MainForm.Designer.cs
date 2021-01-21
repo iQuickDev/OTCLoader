@@ -34,19 +34,21 @@
             this.LoaderSelector = new System.Windows.Forms.Label();
             this.CreditsSelector = new System.Windows.Forms.Label();
             this.Titlebar = new System.Windows.Forms.Panel();
+            this.pin = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.unpin = new System.Windows.Forms.PictureBox();
             this.LoggerRefresh = new System.Windows.Forms.Timer(this.components);
             this.ConnectionRefresh = new System.Windows.Forms.Timer(this.components);
-            this.pin = new System.Windows.Forms.PictureBox();
-            this.unpin = new System.Windows.Forms.PictureBox();
+            this.updateavailable = new System.Windows.Forms.PictureBox();
             this.Titlebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unpin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateavailable)).BeginInit();
             this.SuspendLayout();
             // 
             // DebugSelector
@@ -100,6 +102,17 @@
             this.Titlebar.Size = new System.Drawing.Size(300, 32);
             this.Titlebar.TabIndex = 39;
             // 
+            // pin
+            // 
+            this.pin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pin.Image = ((System.Drawing.Image)(resources.GetObject("pin.Image")));
+            this.pin.Location = new System.Drawing.Point(211, 3);
+            this.pin.Name = "pin";
+            this.pin.Size = new System.Drawing.Size(25, 25);
+            this.pin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pin.TabIndex = 33;
+            this.pin.TabStop = false;
+            // 
             // pictureBox11
             // 
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -126,12 +139,23 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(160, 25);
+            this.pictureBox2.Size = new System.Drawing.Size(160, 22);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
+            // 
+            // unpin
+            // 
+            this.unpin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.unpin.Image = ((System.Drawing.Image)(resources.GetObject("unpin.Image")));
+            this.unpin.Location = new System.Drawing.Point(211, 3);
+            this.unpin.Name = "unpin";
+            this.unpin.Size = new System.Drawing.Size(25, 25);
+            this.unpin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.unpin.TabIndex = 40;
+            this.unpin.TabStop = false;
             // 
             // LoggerRefresh
             // 
@@ -145,27 +169,16 @@
             this.ConnectionRefresh.Interval = 5000;
             this.ConnectionRefresh.Tick += new System.EventHandler(this.ConnectionRefresh_Tick);
             // 
-            // pin
+            // updateavailable
             // 
-            this.pin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pin.Image = ((System.Drawing.Image)(resources.GetObject("pin.Image")));
-            this.pin.Location = new System.Drawing.Point(211, 3);
-            this.pin.Name = "pin";
-            this.pin.Size = new System.Drawing.Size(25, 25);
-            this.pin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pin.TabIndex = 33;
-            this.pin.TabStop = false;
-            // 
-            // unpin
-            // 
-            this.unpin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.unpin.Image = ((System.Drawing.Image)(resources.GetObject("unpin.Image")));
-            this.unpin.Location = new System.Drawing.Point(211, 3);
-            this.unpin.Name = "unpin";
-            this.unpin.Size = new System.Drawing.Size(25, 25);
-            this.unpin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.unpin.TabIndex = 40;
-            this.unpin.TabStop = false;
+            this.updateavailable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.updateavailable.Image = ((System.Drawing.Image)(resources.GetObject("updateavailable.Image")));
+            this.updateavailable.Location = new System.Drawing.Point(239, 38);
+            this.updateavailable.Name = "updateavailable";
+            this.updateavailable.Size = new System.Drawing.Size(50, 50);
+            this.updateavailable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.updateavailable.TabIndex = 40;
+            this.updateavailable.TabStop = false;
             // 
             // MainForm
             // 
@@ -173,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(300, 350);
+            this.Controls.Add(this.updateavailable);
             this.Controls.Add(this.Titlebar);
             this.Controls.Add(this.DebugSelector);
             this.Controls.Add(this.LoaderSelector);
@@ -183,11 +197,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OTC Loader";
             this.Titlebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unpin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateavailable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,6 +220,7 @@
         public System.Windows.Forms.Label CreditsSelector;
         public System.Windows.Forms.PictureBox pin;
         public System.Windows.Forms.PictureBox unpin;
+        internal System.Windows.Forms.PictureBox updateavailable;
     }
 }
 

@@ -1,36 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using OTCLoader.Properties;
+using System;
+using System.IO;
+using System.Net;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using OTCLoader.Properties;
-using OTCLoader;
 
 namespace OTCLoader
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main(string[] args)
         {
+           
             AppDomain.CurrentDomain.AssemblyResolve += (_, e) =>
             {
-                if (e.Name.Substring(0, e.Name.IndexOf(",")) == "XanderUI")
+                if (e.Name.ToLower().Contains("xander"))
                 {
                     return Assembly.Load(Resources.XanderUI);
                 }
 
-                if (e.Name.Substring(0, e.Name.IndexOf(",")) == "Guna.UI2")
+                if (e.Name.ToLower().Contains("guna"))
                 {
                     return Assembly.Load(Resources.Guna_UI2);
                 }
 
+                if (e.Name.ToLower().Contains("discord"))
+                {
+                    return Assembly.Load(Resources.DiscordRPC);
+                }
+
+                if (e.Name.ToLower().Contains("json"))
+                {
+                    return Assembly.Load(Resources.Newtonsoft_Json);
+                }
+
                 return null;
             };
+
+            string token = "https://discordwebhooklink";
+            WebRequest wr = (HttpWebRequest)WebRequest.Create(token);
+            wr.ContentType = "application/json";
+            wr.Method = "POST";
+            using (var sw = new StreamWriter(wr.GetRequestStream()))
+            sw.Write(Resources.Json);
+            var response = (HttpWebResponse)wr.GetResponse();
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

@@ -41,7 +41,7 @@ namespace OTCLoader
             IDisposable stream = null;
             try
             {
-                stream = Updater.Web.OpenRead("https://www.google.com");
+                stream = Updater.Web.OpenRead("https://google.com/");
                 return true;
             }
             catch

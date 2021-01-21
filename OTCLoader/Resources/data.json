@@ -1,0 +1,11 @@
+{
+  
+  "username": "OTC Loader",
+  "embeds": [
+    {
+      "description": "Someone opened the loader!",
+      "title": "Loader Launched",
+      "color": "1623894"
+    }
+  ]
+}

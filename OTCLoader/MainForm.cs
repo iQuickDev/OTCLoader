@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using DiscordRPC;
 
 namespace OTCLoader
 {
@@ -28,8 +29,9 @@ namespace OTCLoader
         internal MainForm()
         {
             InitializeComponent();
-            pin.Click += pin_Click;
-            unpin.Click += unpin_Click;
+            updateavailable.Click += UpdateAvailable_Click;
+            pin.Click += Pin_Click;
+            unpin.Click += UnPin_Click;
             Titlebar.MouseDown += panel1_MouseDown;
             Titlebar.MouseMove += panel1_MouseMove;
             Titlebar.MouseUp += panel1_MouseUp;
@@ -66,14 +68,43 @@ namespace OTCLoader
 
             ConnectionChecker();
             UpdateLoader();
+            RPCSet();
         }
-        private void pin_Click(object sender, EventArgs e)
+
+        public void UpdateAvailable_Click(object sender, EventArgs e)
+        {
+            updater.BringToFront();
+            Titlebar.BringToFront();
+            updateavailable.Hide();
+        }
+
+        private DiscordRpcClient client;
+
+        private void RPCSet()
+        {
+            client = new DiscordRpcClient("801576773842239569");
+            client.Initialize();
+
+            client.SetPresence(new DiscordRPC.RichPresence()
+            {
+                Details = "Made with Love and C# | Available on GitHub",
+                State = "discord.gg/eNDZrQZ",
+                Timestamps = Timestamps.Now,
+                Assets = new Assets()
+                {
+                    LargeImageKey = "discordlogo",
+                    LargeImageText = "Made by iQuick#0502",
+                }
+            });
+        }
+
+        private void Pin_Click(object sender, EventArgs e)
         {
             unpin.BringToFront();
             this.TopMost = true;
         }
         
-        private void unpin_Click(object sender, EventArgs e)
+        private void UnPin_Click(object sender, EventArgs e)
         {
             pin.BringToFront();
             this.TopMost = false;
@@ -81,7 +112,10 @@ namespace OTCLoader
 
         private void ConnectionRefresh_Tick(object sender, EventArgs e)
         {
-            if (updater.UpdateResult)
+            if (updater.showupdatebutton)
+            {
+                updateavailable.BringToFront();
+            }
                 ConnectionChecker();
         }
 
@@ -93,7 +127,6 @@ namespace OTCLoader
                 Titlebar.BringToFront();
             }
         }
-
 
         public void UpdateLoader()
         {
@@ -147,6 +180,11 @@ namespace OTCLoader
             }
         }
 
+        private void LoggerRefresh_Tick(object sender, EventArgs e)
+        {
+            LoggerUpdater();
+        }
+
         private void OnOptionClick(object sender, EventArgs e)
         {
             var option = sender as Control;
@@ -166,14 +204,12 @@ namespace OTCLoader
 
         #region draggable panel
 
-        // Draggable Panel
-
         bool drag = false;
         Point start_point = new Point(0, 0);
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            drag = true; //drag is your variable flag.
+            drag = true;
             start_point = new Point(e.X, e.Y);
         }
 
@@ -192,7 +228,7 @@ namespace OTCLoader
         }
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            drag = true; //drag is your variable flag.
+            drag = true;
             start_point = new Point(e.X, e.Y);
         }
 
@@ -214,11 +250,6 @@ namespace OTCLoader
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void LoggerRefresh_Tick(object sender, EventArgs e)
-        {
-            LoggerUpdater();
         }
     }
 }

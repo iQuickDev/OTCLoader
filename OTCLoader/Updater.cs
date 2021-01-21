@@ -9,7 +9,8 @@ namespace OTCLoader
     {
         internal bool UpdateResult { get; private set; } = false;
         public static WebClient Web { get; set; } = new WebClient();
-        private const string CurrentVersion = "0.1";
+        private const string CurrentVersion = "0.2";
+        public bool showupdatebutton = false;
 
         public Updater()
         {
@@ -19,13 +20,16 @@ namespace OTCLoader
             installationfolder.Text = "Desktop";
             UpdateChecker();
         }
+
         public bool UpdateChecker()
         {
-            string versionfile = Web.DownloadString("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/main/version");
+            string versionfile = Web.DownloadString("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/master/version");
             installedversion.Text = "Installed Version: v" + CurrentVersion;
             newversion.Text = "New Version: v" + versionfile;
+            showupdatebutton = !versionfile.Contains(CurrentVersion);
             return UpdateResult = !versionfile.Contains(CurrentVersion);
         }
+
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             string desktopfolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);

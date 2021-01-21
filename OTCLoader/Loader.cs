@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ManualMapInjection.Injection;
@@ -8,7 +7,6 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Media;
-using OTCLoader;
 
 namespace OTCLoader
 {

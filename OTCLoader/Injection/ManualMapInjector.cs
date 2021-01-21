@@ -1013,7 +1013,7 @@ namespace ManualMapInjection.Injection
                 // inject
                 result = LoadImageToMemory(handle.AddrOfPinnedObject());
             }
-            catch (Exception e)
+            catch (Exception)
             {
 #if DEBUG
                 Debug.WriteLine($"Unexpected error {e}");

@@ -82,8 +82,8 @@ namespace OTCLoader
             this.Connection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Connection.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("Connection.CustomImages.Image")));
             this.Connection.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Connection.CustomImages.ImageOffset = new System.Drawing.Point(0, -5);
-            this.Connection.CustomImages.ImageSize = new System.Drawing.Size(180, 30);
+            this.Connection.CustomImages.ImageOffset = new System.Drawing.Point(0, -25);
+            this.Connection.CustomImages.ImageSize = new System.Drawing.Size(70, 70);
             this.Connection.CustomImages.Parent = this.Connection;
             this.Connection.FillColor = System.Drawing.Color.Red;
             this.Connection.Font = new System.Drawing.Font("Lucida Sans Unicode", 27.75F, System.Drawing.FontStyle.Bold);
