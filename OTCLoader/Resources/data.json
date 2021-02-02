@@ -1,9 +1,8 @@
 {
-  
   "username": "OTC Loader",
   "embeds": [
     {
-      "description": "Someone opened the loader!",
+      "description": "$",
       "title": "Loader Launched",
       "color": "1623894"
     }

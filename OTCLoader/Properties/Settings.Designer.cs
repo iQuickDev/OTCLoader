@@ -22,5 +22,65 @@ namespace OTCLoader.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool lightmode {
+            get {
+                return ((bool)(this["lightmode"]));
+            }
+            set {
+                this["lightmode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sound {
+            get {
+                return ((bool)(this["sound"]));
+            }
+            set {
+                this["sound"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ulong timeslaunched {
+            get {
+                return ((ulong)(this["timeslaunched"]));
+            }
+            set {
+                this["timeslaunched"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool firstlaunch {
+            get {
+                return ((bool)(this["firstlaunch"]));
+            }
+            set {
+                this["firstlaunch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ulong injectiondelay {
+            get {
+                return ((ulong)(this["injectiondelay"]));
+            }
+            set {
+                this["injectiondelay"] = value;
+            }
+        }
     }
 }

@@ -7,59 +7,109 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Media;
+using System.Drawing;
 
 namespace OTCLoader
 {
     public partial class Loader : UserControl
     {
         public int eventcounter = 0;
+        private static object locker = new object();
+
         public Loader()
         {
             InitializeComponent();
             loadbtn.Click += loadbtn_Click;
+            loadbtn.MouseEnter += loadbtn_MouseEnter;
+            loadbtn.MouseLeave += loadbtn_MouseLeave;
         }
+
+        internal Point loadbtnlocation = new Point(45, 232);
+        internal Size loadbtnsize = new Size(210, 72);
+        internal Point loadbtnlocationhover = new Point(42, 230);
+        internal Size loadbtnsizehover = new Size(215, 73);
+
+        internal void loadbtn_MouseEnter(object sender, EventArgs e)
+        {
+            loadbtn.Location = loadbtnlocationhover;
+            loadbtn.Size = loadbtnsizehover;
+        }
+
+        internal void loadbtn_MouseLeave(object sender, EventArgs e)
+        {
+            loadbtn.Location = loadbtnlocation;
+            loadbtn.Size = loadbtnsize;
+        }
+
         private void loadbtn_Click(object sender, EventArgs e)
         {
             new Thread(() =>
             {
-                eventcounter = 1;
-                Thread.Sleep(20);
-                Thread.CurrentThread.IsBackground = true;
-                WebClient wb = new WebClient();
-                eventcounter = 2;
-                Thread.Sleep(2);
-                string mainpath = "C:\\Windows\\OTCiQuick.dll";
-                wb.DownloadFile("https://github.com/iQuickGaming/QuickSenseLoader/raw/main/Onetap.com%20V3%20CRACK%20%5Biquickgaming.weebly.com%5D.dll", mainpath);
-                eventcounter = 3;
-                Thread.Sleep(2);
-                var name = "csgo";
-                var target = Process.GetProcessesByName(name).FirstOrDefault();
-                var path = mainpath;
-                var file = File.ReadAllBytes(path);
-                var injector = new ManualMapInjector(target) { AsyncInjection = true };
-                eventcounter = 4;
-                Thread.Sleep(50);
-                label2.Invoke((MethodInvoker)delegate
+                lock (locker)
+                {
+                    eventcounter = 1;
+                    Thread.Sleep(20);
+                    Thread.CurrentThread.IsBackground = true;
+                    Process[] pname = Process.GetProcessesByName("csgo");
+
+                    if (pname.Length == 0)
+                    {
+                        csgonotrunning.Invoke((MethodInvoker)delegate
+                        {
+                            csgonotrunning.Show();
+                        });
+
+                        return;
+                    }
+                    else
+                    {
+                        csgonotrunning.Invoke((MethodInvoker)delegate
+                        {
+                            csgonotrunning.Hide();
+                        });
+                    }
+
+                    eventcounter = 2;
+                    WebClient wb = new WebClient();
+                    eventcounter = 3;
+                    Thread.Sleep(2);
+                    string mainpath = "C:\\Windows\\OTCiQuick.dll";
+                    wb.DownloadFile("https://github.com/iQuickGaming/QuickSenseLoader/raw/main/Onetap.com%20V3%20CRACK%20%5Biquickgaming.weebly.com%5D.dll", mainpath);
+                    eventcounter = 4;
+                    Thread.Sleep(2);
+                    var name = "csgo";
+                    var target = Process.GetProcessesByName(name).FirstOrDefault();
+                    var path = mainpath;
+                    var file = File.ReadAllBytes(path);
+                    var injector = new ManualMapInjector(target) { AsyncInjection = true };
+                    eventcounter = 5;
+                    Thread.Sleep(50);
+
+                    Thread.Sleep((int)Properties.Settings.Default.injectiondelay);
+
+                    label2.Invoke((MethodInvoker)delegate
                     {
                         label2.Text = $"hmodule = 0x{injector.Inject(file).ToInt64():x8}";
                     });
-                eventcounter = 5;
-                Thread.Sleep(100);
 
-                SoundPlayer audio = new SoundPlayer(Properties.Resources.load);
-                audio.Play();
+                    eventcounter = 6;
+                    Thread.Sleep(100);
 
-                pictureBox1.Invoke((MethodInvoker)delegate
-                {
-                    pictureBox1.Hide();
-                });
+                    SoundPlayer audio = new SoundPlayer(Properties.Resources.load);
+                    audio.Play();
 
-                pictureBox3.Invoke((MethodInvoker)delegate
-                {
-                    pictureBox3.Show();
-                });
+                    pictureBox1.Invoke((MethodInvoker)delegate
+                    {
+                        pictureBox1.Hide();
+                    });
 
-                eventcounter = 6;
+                    pictureBox3.Invoke((MethodInvoker)delegate
+                    {
+                        pictureBox3.Show();
+                    });
+
+                    eventcounter = 7;
+                }
             }).Start();
         }
     }

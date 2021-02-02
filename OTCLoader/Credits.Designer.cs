@@ -29,85 +29,87 @@ namespace OTCLoader
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Credits));
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.quicksense = new System.Windows.Forms.PictureBox();
+            this.website = new System.Windows.Forms.PictureBox();
+            this.steam = new System.Windows.Forms.PictureBox();
+            this.discord = new System.Windows.Forms.PictureBox();
+            this.github = new System.Windows.Forms.PictureBox();
+            this.youtube = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.xuiCircleProgressBar1 = new XanderUI.XUICircleProgressBar();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.animationtimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.quicksense)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.website)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.steam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.github)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.youtube)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox9
+            // quicksense
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(237, 261);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 28;
-            this.pictureBox9.TabStop = false;
+            this.quicksense.Image = ((System.Drawing.Image)(resources.GetObject("quicksense.Image")));
+            this.quicksense.Location = new System.Drawing.Point(237, 263);
+            this.quicksense.Name = "quicksense";
+            this.quicksense.Size = new System.Drawing.Size(50, 50);
+            this.quicksense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.quicksense.TabIndex = 28;
+            this.quicksense.TabStop = false;
             // 
-            // pictureBox8
+            // website
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(125, 261);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 27;
-            this.pictureBox8.TabStop = false;
+            this.website.Image = ((System.Drawing.Image)(resources.GetObject("website.Image")));
+            this.website.Location = new System.Drawing.Point(125, 263);
+            this.website.Name = "website";
+            this.website.Size = new System.Drawing.Size(50, 50);
+            this.website.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.website.TabIndex = 27;
+            this.website.TabStop = false;
             // 
-            // pictureBox7
+            // steam
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(17, 261);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 26;
-            this.pictureBox7.TabStop = false;
+            this.steam.Image = ((System.Drawing.Image)(resources.GetObject("steam.Image")));
+            this.steam.Location = new System.Drawing.Point(17, 263);
+            this.steam.Name = "steam";
+            this.steam.Size = new System.Drawing.Size(50, 50);
+            this.steam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.steam.TabIndex = 26;
+            this.steam.TabStop = false;
             // 
-            // pictureBox6
+            // discord
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(237, 205);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 25;
-            this.pictureBox6.TabStop = false;
+            this.discord.Image = ((System.Drawing.Image)(resources.GetObject("discord.Image")));
+            this.discord.Location = new System.Drawing.Point(237, 205);
+            this.discord.Name = "discord";
+            this.discord.Size = new System.Drawing.Size(50, 50);
+            this.discord.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.discord.TabIndex = 25;
+            this.discord.TabStop = false;
             // 
-            // pictureBox5
+            // github
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(125, 205);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 24;
-            this.pictureBox5.TabStop = false;
+            this.github.Image = ((System.Drawing.Image)(resources.GetObject("github.Image")));
+            this.github.Location = new System.Drawing.Point(125, 205);
+            this.github.Name = "github";
+            this.github.Size = new System.Drawing.Size(50, 50);
+            this.github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.github.TabIndex = 24;
+            this.github.TabStop = false;
             // 
-            // pictureBox4
+            // youtube
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(17, 205);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 23;
-            this.pictureBox4.TabStop = false;
+            this.youtube.Image = ((System.Drawing.Image)(resources.GetObject("youtube.Image")));
+            this.youtube.Location = new System.Drawing.Point(17, 205);
+            this.youtube.Name = "youtube";
+            this.youtube.Size = new System.Drawing.Size(50, 50);
+            this.youtube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.youtube.TabIndex = 23;
+            this.youtube.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -149,28 +151,33 @@ namespace OTCLoader
             this.xuiCircleProgressBar1.UnFilledColor = System.Drawing.Color.Transparent;
             this.xuiCircleProgressBar1.UnfilledThickness = 24;
             // 
+            // animationtimer
+            // 
+            this.animationtimer.Enabled = true;
+            this.animationtimer.Interval = 50;
+            // 
             // Credits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.quicksense);
+            this.Controls.Add(this.website);
+            this.Controls.Add(this.steam);
+            this.Controls.Add(this.discord);
+            this.Controls.Add(this.github);
+            this.Controls.Add(this.youtube);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.xuiCircleProgressBar1);
             this.Name = "Credits";
             this.Size = new System.Drawing.Size(300, 350);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quicksense)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.website)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.steam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.github)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.youtube)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -178,14 +185,15 @@ namespace OTCLoader
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox quicksense;
+        private System.Windows.Forms.PictureBox website;
+        private System.Windows.Forms.PictureBox steam;
+        private System.Windows.Forms.PictureBox discord;
+        private System.Windows.Forms.PictureBox github;
+        private System.Windows.Forms.PictureBox youtube;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private XanderUI.XUICircleProgressBar xuiCircleProgressBar1;
+        internal System.Windows.Forms.Timer animationtimer;
     }
 }

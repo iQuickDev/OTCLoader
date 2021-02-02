@@ -61,6 +61,21 @@ namespace OTCLoader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User: $UserName$
+        ///Version: v$Version$
+        ///Injection Delay: $InjectionDelay$ms
+        ///Theme: $Theme$
+        ///Music: $Music$
+        ///Launched $TimesLaunched$ times
+        ///[$TimeNow$].
+        /// </summary>
+        internal static string Content {
+            get {
+                return ResourceManager.GetString("Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] DiscordRPC {
@@ -82,11 +97,10 @@ namespace OTCLoader.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///  
         ///  &quot;username&quot;: &quot;OTC Loader&quot;,
         ///  &quot;embeds&quot;: [
         ///    {
-        ///      &quot;description&quot;: &quot;Someone opened the loader!&quot;,
+        ///      &quot;description&quot;: &quot;$&quot;,
         ///      &quot;title&quot;: &quot;Loader Launched&quot;,
         ///      &quot;color&quot;: &quot;1623894&quot;
         ///    }
@@ -115,6 +129,15 @@ namespace OTCLoader.Properties {
             get {
                 object obj = ResourceManager.GetObject("Newtonsoft_Json", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream onetapsong {
+            get {
+                return ResourceManager.GetStream("onetapsong", resourceCulture);
             }
         }
         

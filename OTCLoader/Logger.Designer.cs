@@ -38,7 +38,8 @@ namespace OTCLoader
             this.dllinjectedsuccessfully = new System.Windows.Forms.Label();
             this.injectionthreadclosed = new System.Windows.Forms.Label();
             this.storeddlllocally = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.initialization = new System.Windows.Forms.Label();
+            this.foundcsgorunning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@ namespace OTCLoader
             this.launchedwebclient.AutoSize = true;
             this.launchedwebclient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.launchedwebclient.ForeColor = System.Drawing.Color.White;
-            this.launchedwebclient.Location = new System.Drawing.Point(18, 135);
+            this.launchedwebclient.Location = new System.Drawing.Point(18, 154);
             this.launchedwebclient.Name = "launchedwebclient";
             this.launchedwebclient.Size = new System.Drawing.Size(151, 17);
             this.launchedwebclient.TabIndex = 39;
@@ -80,7 +81,7 @@ namespace OTCLoader
             this.downloadeddlllocally.AutoSize = true;
             this.downloadeddlllocally.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.downloadeddlllocally.ForeColor = System.Drawing.Color.White;
-            this.downloadeddlllocally.Location = new System.Drawing.Point(18, 152);
+            this.downloadeddlllocally.Location = new System.Drawing.Point(18, 171);
             this.downloadeddlllocally.Name = "downloadeddlllocally";
             this.downloadeddlllocally.Size = new System.Drawing.Size(176, 17);
             this.downloadeddlllocally.TabIndex = 40;
@@ -91,7 +92,7 @@ namespace OTCLoader
             this.launchedinjection.AutoSize = true;
             this.launchedinjection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.launchedinjection.ForeColor = System.Drawing.Color.White;
-            this.launchedinjection.Location = new System.Drawing.Point(18, 186);
+            this.launchedinjection.Location = new System.Drawing.Point(18, 205);
             this.launchedinjection.Name = "launchedinjection";
             this.launchedinjection.Size = new System.Drawing.Size(139, 17);
             this.launchedinjection.TabIndex = 41;
@@ -102,7 +103,7 @@ namespace OTCLoader
             this.dllinjectedsuccessfully.AutoSize = true;
             this.dllinjectedsuccessfully.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dllinjectedsuccessfully.ForeColor = System.Drawing.Color.White;
-            this.dllinjectedsuccessfully.Location = new System.Drawing.Point(18, 203);
+            this.dllinjectedsuccessfully.Location = new System.Drawing.Point(18, 221);
             this.dllinjectedsuccessfully.Name = "dllinjectedsuccessfully";
             this.dllinjectedsuccessfully.Size = new System.Drawing.Size(181, 17);
             this.dllinjectedsuccessfully.TabIndex = 42;
@@ -113,7 +114,7 @@ namespace OTCLoader
             this.injectionthreadclosed.AutoSize = true;
             this.injectionthreadclosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.injectionthreadclosed.ForeColor = System.Drawing.Color.White;
-            this.injectionthreadclosed.Location = new System.Drawing.Point(18, 220);
+            this.injectionthreadclosed.Location = new System.Drawing.Point(18, 239);
             this.injectionthreadclosed.Name = "injectionthreadclosed";
             this.injectionthreadclosed.Size = new System.Drawing.Size(169, 17);
             this.injectionthreadclosed.TabIndex = 43;
@@ -124,29 +125,41 @@ namespace OTCLoader
             this.storeddlllocally.AutoSize = true;
             this.storeddlllocally.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.storeddlllocally.ForeColor = System.Drawing.Color.White;
-            this.storeddlllocally.Location = new System.Drawing.Point(18, 169);
+            this.storeddlllocally.Location = new System.Drawing.Point(18, 188);
             this.storeddlllocally.Name = "storeddlllocally";
             this.storeddlllocally.Size = new System.Drawing.Size(140, 17);
             this.storeddlllocally.TabIndex = 44;
             this.storeddlllocally.Text = "> Stored DLL Locally";
             // 
-            // label1
+            // initialization
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 17);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "> Initialization";
+            this.initialization.AutoSize = true;
+            this.initialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.initialization.ForeColor = System.Drawing.Color.White;
+            this.initialization.Location = new System.Drawing.Point(18, 101);
+            this.initialization.Name = "initialization";
+            this.initialization.Size = new System.Drawing.Size(93, 17);
+            this.initialization.TabIndex = 45;
+            this.initialization.Text = "> Initialization";
+            // 
+            // foundcsgorunning
+            // 
+            this.foundcsgorunning.AutoSize = true;
+            this.foundcsgorunning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.foundcsgorunning.ForeColor = System.Drawing.Color.White;
+            this.foundcsgorunning.Location = new System.Drawing.Point(18, 137);
+            this.foundcsgorunning.Name = "foundcsgorunning";
+            this.foundcsgorunning.Size = new System.Drawing.Size(161, 17);
+            this.foundcsgorunning.TabIndex = 46;
+            this.foundcsgorunning.Text = "> Found CSGO Running";
             // 
             // Logger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.foundcsgorunning);
+            this.Controls.Add(this.initialization);
             this.Controls.Add(this.storeddlllocally);
             this.Controls.Add(this.injectionthreadclosed);
             this.Controls.Add(this.dllinjectedsuccessfully);
@@ -166,12 +179,13 @@ namespace OTCLoader
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label injectionthreadcreated;
-        public System.Windows.Forms.Label launchedwebclient;
-        public System.Windows.Forms.Label downloadeddlllocally;
         public System.Windows.Forms.Label launchedinjection;
         public System.Windows.Forms.Label dllinjectedsuccessfully;
         public System.Windows.Forms.Label injectionthreadclosed;
-        public System.Windows.Forms.Label storeddlllocally;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label initialization;
+        internal System.Windows.Forms.Label launchedwebclient;
+        internal System.Windows.Forms.Label downloadeddlllocally;
+        internal System.Windows.Forms.Label storeddlllocally;
+        internal System.Windows.Forms.Label foundcsgorunning;
     }
 }

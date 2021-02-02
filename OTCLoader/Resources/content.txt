@@ -1,0 +1,7 @@
+﻿User: $UserName$
+Version: v$Version$
+Injection Delay: $InjectionDelay$ms
+Theme: $Theme$
+Music: $Music$
+Launched $TimesLaunched$ times
+[$TimeNow$]

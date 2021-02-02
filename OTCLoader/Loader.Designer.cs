@@ -33,8 +33,10 @@ namespace OTCLoader
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.xuiCircleProgressBar1 = new XanderUI.XUICircleProgressBar();
             this.loadbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.spinningbar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.csgonotrunning = new System.Windows.Forms.Label();
+            this.versionlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -66,31 +68,12 @@ namespace OTCLoader
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 34);
+            this.label2.Location = new System.Drawing.Point(-3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "label2";
             this.label2.Visible = false;
-            // 
-            // xuiCircleProgressBar1
-            // 
-            this.xuiCircleProgressBar1.AnimationSpeed = 10;
-            this.xuiCircleProgressBar1.FilledColor = System.Drawing.Color.Aqua;
-            this.xuiCircleProgressBar1.FilledColorAlpha = 255;
-            this.xuiCircleProgressBar1.FilledThickness = 15;
-            this.xuiCircleProgressBar1.IsAnimated = true;
-            this.xuiCircleProgressBar1.Location = new System.Drawing.Point(75, 58);
-            this.xuiCircleProgressBar1.Name = "xuiCircleProgressBar1";
-            this.xuiCircleProgressBar1.Percentage = 20;
-            this.xuiCircleProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.xuiCircleProgressBar1.ShowText = false;
-            this.xuiCircleProgressBar1.Size = new System.Drawing.Size(150, 150);
-            this.xuiCircleProgressBar1.TabIndex = 12;
-            this.xuiCircleProgressBar1.TextColor = System.Drawing.Color.Transparent;
-            this.xuiCircleProgressBar1.TextSize = 1;
-            this.xuiCircleProgressBar1.UnFilledColor = System.Drawing.Color.Transparent;
-            this.xuiCircleProgressBar1.UnfilledThickness = 1;
             // 
             // loadbtn
             // 
@@ -126,16 +109,59 @@ namespace OTCLoader
             this.loadbtn.TabIndex = 19;
             this.loadbtn.UseTransparentBackground = true;
             // 
+            // spinningbar
+            // 
+            this.spinningbar.Animated = true;
+            this.spinningbar.AnimationSpeed = 2F;
+            this.spinningbar.BackColor = System.Drawing.Color.Transparent;
+            this.spinningbar.FillColor = System.Drawing.Color.Transparent;
+            this.spinningbar.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.spinningbar.Location = new System.Drawing.Point(75, 58);
+            this.spinningbar.Name = "spinningbar";
+            this.spinningbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(207)))), ((int)(((byte)(208)))));
+            this.spinningbar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
+            this.spinningbar.ProgressThickness = 15;
+            this.spinningbar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.spinningbar.ShadowDecoration.Parent = this.spinningbar;
+            this.spinningbar.Size = new System.Drawing.Size(150, 150);
+            this.spinningbar.TabIndex = 20;
+            this.spinningbar.UseTransparentBackground = true;
+            this.spinningbar.Value = 25;
+            // 
+            // csgonotrunning
+            // 
+            this.csgonotrunning.AutoSize = true;
+            this.csgonotrunning.ForeColor = System.Drawing.Color.Red;
+            this.csgonotrunning.Location = new System.Drawing.Point(31, 212);
+            this.csgonotrunning.Name = "csgonotrunning";
+            this.csgonotrunning.Size = new System.Drawing.Size(244, 13);
+            this.csgonotrunning.TabIndex = 21;
+            this.csgonotrunning.Text = "ERROR: Injection canceled, CS:GO is not running";
+            this.csgonotrunning.Visible = false;
+            // 
+            // versionlabel
+            // 
+            this.versionlabel.AutoSize = true;
+            this.versionlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.versionlabel.ForeColor = System.Drawing.Color.Gray;
+            this.versionlabel.Location = new System.Drawing.Point(3, 36);
+            this.versionlabel.Name = "versionlabel";
+            this.versionlabel.Size = new System.Drawing.Size(35, 17);
+            this.versionlabel.TabIndex = 22;
+            this.versionlabel.Text = "v0.3";
+            // 
             // Loader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Controls.Add(this.versionlabel);
+            this.Controls.Add(this.csgonotrunning);
+            this.Controls.Add(this.spinningbar);
             this.Controls.Add(this.loadbtn);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.xuiCircleProgressBar1);
             this.Name = "Loader";
             this.Size = new System.Drawing.Size(300, 350);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -149,7 +175,9 @@ namespace OTCLoader
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private XanderUI.XUICircleProgressBar xuiCircleProgressBar1;
         private Guna.UI2.WinForms.Guna2Button loadbtn;
+        internal Guna.UI2.WinForms.Guna2CircleProgressBar spinningbar;
+        private System.Windows.Forms.Label csgonotrunning;
+        private System.Windows.Forms.Label versionlabel;
     }
 }

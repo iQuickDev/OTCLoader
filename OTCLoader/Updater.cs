@@ -9,8 +9,8 @@ namespace OTCLoader
     {
         internal bool UpdateResult { get; private set; } = false;
         public static WebClient Web { get; set; } = new WebClient();
-        private const string CurrentVersion = "0.2";
-        public bool showupdatebutton = false;
+        internal const string CurrentVersion = "0.3";
+        internal bool showupdatebutton = false;
 
         public Updater()
         {
@@ -23,7 +23,7 @@ namespace OTCLoader
 
         public bool UpdateChecker()
         {
-            string versionfile = Web.DownloadString("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/master/version");
+            string versionfile = Web.DownloadString("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/main/version");
             installedversion.Text = "Installed Version: v" + CurrentVersion;
             newversion.Text = "New Version: v" + versionfile;
             showupdatebutton = !versionfile.Contains(CurrentVersion);
@@ -40,7 +40,6 @@ namespace OTCLoader
                 Web.DownloadFile(downloadfile, updatepath);
             }).Start();
 
-            Application.Exit();
         }
         private void UpdatePostponer_Click(object sender, EventArgs e)
         {

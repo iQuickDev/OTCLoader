@@ -15,7 +15,6 @@ namespace OTCLoader
         [STAThread]
         private static void Main(string[] args)
         {
-           
             AppDomain.CurrentDomain.AssemblyResolve += (_, e) =>
             {
                 if (e.Name.ToLower().Contains("xander"))
@@ -41,14 +40,35 @@ namespace OTCLoader
                 return null;
             };
 
-            string token = "https://discordwebhooklink";
-            WebRequest wr = (HttpWebRequest)WebRequest.Create(token);
-            wr.ContentType = "application/json";
-            wr.Method = "POST";
-            using (var sw = new StreamWriter(wr.GetRequestStream()))
-            sw.Write(Resources.Json);
-            var response = (HttpWebResponse)wr.GetResponse();
+            Properties.Settings.Default.timeslaunched++;
+            Properties.Settings.Default.Save();
 
+
+            // DISCORD WEBHOOK (uncomment if you have a webhook on discord)
+
+            //if (!Properties.Settings.Default.firstlaunch)
+            //{
+            //    WebRequest wr = (HttpWebRequest)WebRequest.Create("https://discordwebhooklink");
+            //    wr.ContentType = "application/json";
+            //    wr.Method = "POST";
+            //    using (var sw = new StreamWriter(wr.GetRequestStream()))
+            //    {
+            //        sw.Write(Resources.Json.Set(new[]
+            //        {
+
+            //        ("UserName", Environment.UserName),
+            //        ("TimeNow", DateTime.UtcNow.ToString("hh:mm tt MM/dd/yyyy")),
+            //        ("Version", Updater.CurrentVersion),
+            //        ("Theme", Properties.Settings.Default.lightmode ? "Light" : "Dark"),
+            //        ("Music", Properties.Settings.Default.sound ? "On" : "Off"),
+            //        ("TimesLaunched", $"{Properties.Settings.Default.timeslaunched}"),
+            //        ("InjectionDelay", $"{Properties.Settings.Default.injectiondelay}")
+
+            //        }));
+            //    }
+
+            //    var response = (HttpWebResponse)wr.GetResponse();
+            //}
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

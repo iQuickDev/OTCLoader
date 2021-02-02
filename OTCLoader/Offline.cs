@@ -28,10 +28,13 @@ namespace OTCLoader
                         (form.LoaderSelector.Tag as Control).BringToFront();
                     else if (form.DebugSelector.ForeColor == Color.Gainsboro)
                         (form.DebugSelector.Tag as Control).BringToFront();
+                    else if (form.SettingsSelector.ForeColor == Color.Gainsboro)
+                    (form.SettingsSelector.Tag as Control).BringToFront();
                     form.Titlebar.BringToFront();
                     form.CreditsSelector.BringToFront();
                     form.LoaderSelector.BringToFront();
                     form.DebugSelector.BringToFront();
+                    form.SettingsSelector.BringToFront();
                 }
             };
         }

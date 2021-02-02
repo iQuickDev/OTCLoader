@@ -3,20 +3,25 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using DiscordRPC;
+using System.Threading;
+using System.Media;
 
 namespace OTCLoader
 {
-    public partial class MainForm : Form
+
+    internal partial class MainForm : Form
     {
         public Loader loader = new Loader();
         public Credits credits = new Credits();
         public Logger logger = new Logger();
         public Updater updater = new Updater();
         public Offline offline = new Offline();
+        public Settings settings = new Settings();
+        public Terms terms = new Terms();
 
 
         [DllImport("Gdi32.dll")]
-        public static extern IntPtr CreateRoundRectRgn
+        internal static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
             int nTopRect,      // y-coordinate of upper-left corner
@@ -26,29 +31,42 @@ namespace OTCLoader
             int nHeightEllipse // width of ellipse
         );
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 33554432;   // Double buffering constant.
+                return cp;
+            }
+        }
+
         internal MainForm()
         {
             InitializeComponent();
+            terms.acceptbtn.Click += TermsAccepted;
+            playaudio.Click += playaudio_Click;
+            stopaudio.Click += stopaudio_Click;
             updateavailable.Click += UpdateAvailable_Click;
             pin.Click += Pin_Click;
             unpin.Click += UnPin_Click;
             Titlebar.MouseDown += panel1_MouseDown;
             Titlebar.MouseMove += panel1_MouseMove;
             Titlebar.MouseUp += panel1_MouseUp;
-            pictureBox2.MouseDown += pictureBox2_MouseDown;
-            pictureBox2.MouseMove += pictureBox2_MouseMove;
-            pictureBox2.MouseUp += pictureBox2_MouseUp;
+            title.MouseDown += pictureBox2_MouseDown;
+            title.MouseMove += pictureBox2_MouseMove;
+            title.MouseUp += pictureBox2_MouseUp;
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            loader.Parent = credits.Parent = logger.Parent = updater.Parent = offline.Parent = this;
-            loader.Location = credits.Location = logger.Location = updater.Location = offline.Location = Point.Empty;
+            loader.Parent = credits.Parent = logger.Parent = updater.Parent = offline.Parent = settings.Parent = terms.Parent = this;
+            loader.Location = credits.Location = logger.Location = updater.Location = offline.Location = settings.Location = terms.Location = Point.Empty;
 
-            pictureBox11.Click += delegate
+            minimize.Click += delegate
             {
                 WindowState = FormWindowState.Minimized;
             };
 
-            pictureBox4.Click += delegate
+            close.Click += delegate
             {
                 Close();
             };
@@ -58,29 +76,117 @@ namespace OTCLoader
                 ConnectionChecker();
             };
 
+            if (Properties.Settings.Default.sound)
+            {
+                song.PlayLooping();
+            }
+
             DebugSelector.Tag = logger;
             LoaderSelector.Tag = loader;
             CreditsSelector.Tag = credits;
+            SettingsSelector.Tag = settings;
             DebugSelector.Click += OnOptionClick;
             LoaderSelector.Click += OnOptionClick;
             CreditsSelector.Click += OnOptionClick;
+            SettingsSelector.Click += OnOptionClick;
             OnOptionClick(LoaderSelector, null);
 
             ConnectionChecker();
             UpdateLoader();
             RPCSet();
+
+            if (Properties.Settings.Default.sound)
+            {
+                stopaudio.BringToFront();
+            }
+            else
+            {
+                playaudio.BringToFront();
+            }
+
+            RefreshTheme();
+
+            settings.thememode.CheckedChanged += delegate
+            {
+                Properties.Settings.Default.lightmode = !Properties.Settings.Default.lightmode;
+                Properties.Settings.Default.Save();
+                RefreshTheme();
+            };
+
+            if (Properties.Settings.Default.firstlaunch)
+            {
+                terms.BringToFront();
+                Titlebar.BringToFront();
+            }
         }
 
-        public void UpdateAvailable_Click(object sender, EventArgs e)
+        internal void TermsAccepted(object sender, EventArgs e)
+        {
+            loader.BringToFront();
+            Titlebar.BringToFront();
+            CreditsSelector.BringToFront();
+            LoaderSelector.BringToFront();
+            DebugSelector.BringToFront();
+            SettingsSelector.BringToFront();
+        }
+
+
+        internal void RefreshTheme()
+        {
+            if (Properties.Settings.Default.lightmode)
+            {
+                this.BackColor = Color.White;
+                logger.BackColor = Color.White;
+                credits.BackColor = Color.White;
+                updater.BackColor = Color.White;
+                offline.BackColor = Color.White;
+                settings.BackColor = Color.White;
+                loader.BackColor = Color.White;
+                Titlebar.BackColor = ColorTranslator.FromHtml("#c8c8c8");
+                settings.injectiondelay.FillColor = ColorTranslator.FromHtml("#c8c8c8");
+                settings.injectiondelay.PlaceholderForeColor = Color.Black;
+                foreach (Control controlupdater in updater.Controls)
+                {
+                    controlupdater.ForeColor = Color.Black;
+                }
+                foreach (Control control in logger.Controls)
+                {
+                    control.ForeColor = Color.Black;
+                }
+            }
+            else
+            {
+                this.BackColor = ColorTranslator.FromHtml("#141414");
+                logger.BackColor = ColorTranslator.FromHtml("#141414");
+                credits.BackColor = ColorTranslator.FromHtml("#141414");
+                updater.BackColor = ColorTranslator.FromHtml("#141414");
+                offline.BackColor = ColorTranslator.FromHtml("#141414");
+                settings.BackColor = ColorTranslator.FromHtml("#141414");
+                loader.BackColor = ColorTranslator.FromHtml("#141414");
+                Titlebar.BackColor = ColorTranslator.FromHtml("#1e1e1e");
+                settings.injectiondelay.FillColor = ColorTranslator.FromHtml("#1e1e1e");
+                settings.injectiondelay.PlaceholderForeColor = Color.White;
+                foreach (Control controlupdater in updater.Controls)
+                {
+                    controlupdater.ForeColor = Color.White;
+                }
+                foreach (Control control in logger.Controls)
+                {
+                    control.ForeColor = Color.White;
+                }
+            }
+        }
+
+        internal void UpdateAvailable_Click(object sender, EventArgs e)
         {
             updater.BringToFront();
             Titlebar.BringToFront();
             updateavailable.Hide();
         }
 
-        private DiscordRpcClient client;
+        internal DiscordRpcClient client;
 
-        private void RPCSet()
+        internal void RPCSet()
         {
             client = new DiscordRpcClient("801576773842239569");
             client.Initialize();
@@ -98,28 +204,34 @@ namespace OTCLoader
             });
         }
 
-        private void Pin_Click(object sender, EventArgs e)
+        internal void Pin_Click(object sender, EventArgs e)
         {
             unpin.BringToFront();
             this.TopMost = true;
         }
         
-        private void UnPin_Click(object sender, EventArgs e)
+        internal void UnPin_Click(object sender, EventArgs e)
         {
             pin.BringToFront();
             this.TopMost = false;
         }
 
-        private void ConnectionRefresh_Tick(object sender, EventArgs e)
+        internal void ConnectionRefresh_Tick(object sender, EventArgs e)
         {
-            if (updater.showupdatebutton)
+            new Thread(() =>
             {
-                updateavailable.BringToFront();
-            }
+                if (updater.showupdatebutton)
+                {
+                    updateavailable.Invoke((MethodInvoker)delegate
+                    {
+                        updateavailable.BringToFront();
+                    });
+                }
                 ConnectionChecker();
-        }
+        }).Start();
+    }
 
-        public void ConnectionChecker()
+        internal void ConnectionChecker()
         {
             if (!offline.ConnectionChecker())
             {
@@ -128,7 +240,7 @@ namespace OTCLoader
             }
         }
 
-        public void UpdateLoader()
+        internal void UpdateLoader()
         {
             if (updater.UpdateChecker())
             {
@@ -137,13 +249,13 @@ namespace OTCLoader
             }
         }
 
-        public void LoggerUpdater()
+        internal void LoggerUpdater()
         {
             switch (loader.eventcounter)
             {
                 case 0:
                     {
-                        logger.label1.ForeColor = Color.Green;
+                        logger.initialization.ForeColor = Color.Green;
                         break;
                     }
                 case 1:
@@ -153,26 +265,31 @@ namespace OTCLoader
                     }
                 case 2:
                     {
-                        logger.launchedwebclient.ForeColor = Color.Green;
+                        logger.foundcsgorunning.ForeColor = Color.Green;
                         break;
                     }
                 case 3:
+                    {
+                        logger.launchedwebclient.ForeColor = Color.Green;
+                        break;
+                    }
+                case 4:
                     {
                         logger.downloadeddlllocally.ForeColor = Color.Green;
                         logger.storeddlllocally.ForeColor = Color.Green;
                         break;
                     }
-                case 4:
+                case 5:
                     {
                         logger.launchedinjection.ForeColor = Color.Green;
                         break;
                     }
-                case 5:
+                case 6:
                     {
                         logger.dllinjectedsuccessfully.ForeColor = Color.Green;
                         break;
                     }
-                case 6:
+                case 7:
                     {
                         logger.injectionthreadclosed.ForeColor = Color.Green;
                         break;
@@ -180,26 +297,44 @@ namespace OTCLoader
             }
         }
 
-        private void LoggerRefresh_Tick(object sender, EventArgs e)
+        internal void LoggerRefresh_Tick(object sender, EventArgs e)
         {
-            LoggerUpdater();
+            new Thread(() =>
+            {
+                LoggerUpdater();
+
+            }).Start();
         }
 
-        private void OnOptionClick(object sender, EventArgs e)
+        internal void OnOptionClick(object sender, EventArgs e)
         {
             var option = sender as Control;
             (option.Tag as UserControl).BringToFront();
-            CreditsSelector.ForeColor = LoaderSelector.ForeColor = DebugSelector.ForeColor = Color.Gray;
+            CreditsSelector.ForeColor = LoaderSelector.ForeColor = DebugSelector.ForeColor = SettingsSelector.ForeColor = Color.Gray;
             option.ForeColor = Color.Gainsboro;
             Titlebar.BringToFront();
             CreditsSelector.BringToFront();
             LoaderSelector.BringToFront();
             DebugSelector.BringToFront();
+            SettingsSelector.BringToFront();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        SoundPlayer song = new SoundPlayer(Properties.Resources.onetapsong);
+
+        internal void playaudio_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            stopaudio.BringToFront();
+            song.PlayLooping();
+            Properties.Settings.Default.sound = !Properties.Settings.Default.sound;
+            Properties.Settings.Default.Save();
+        }
+
+        internal void stopaudio_Click(object sender, EventArgs e)
+        {
+            playaudio.BringToFront();
+            song.Stop();
+            Properties.Settings.Default.sound = !Properties.Settings.Default.sound;
+            Properties.Settings.Default.Save();
         }
 
         #region draggable panel
@@ -246,10 +381,5 @@ namespace OTCLoader
             drag = false;
         }
         #endregion
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

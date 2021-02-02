@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="quicksense.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAABGdBTUEAALGPC/xhBQAANOJJREFUeF7t
         nQeYHMW1qB3f87vX911bq9VqVxtm2EUSighlJBRQjijnhIRAIkqAMcECOWBEkoVJItiAETmDwIhsg20B
@@ -349,7 +349,7 @@
         z/gdn+Gz/M25tOG1tVw8k4P4Dr7L+1qVkpaPfOR/AEmJh+NP2C9xAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="website.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAYAAADbcAZoAAAABGdBTUEAALGPC/xhBQAAoJZJREFUeF7t
         nQmIXlfZ+KWUUkoppYiIlCJSRIqIiIiISCkiIiLlQ0TkQz4+pIh8iIiIiIj3nTWZZJJM1sm+L5O92bcm
@@ -1040,7 +1040,7 @@
         6f8BaW1zVknfeWsAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="steam.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABLAAAASwCAYAAADrIbPPAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH4QgKBys7jDXL6gAA/4hJREFU
@@ -2180,7 +2180,7 @@
         yv9dUVf08v9kj17ynKv30ofMT72pw0JERERk87Jl+39hdsmFzEg23wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="discord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABkAAAAZACAYAAAAhDI6nAAAABGdBTUEAALGPC/xhBQAA1H1JREFUeF7s
         3Xe8bVdVN/z3ppEKIQlJaIZAaBKQKgRB9HkpRgUbXUSaglIDIgiCoKACARGkS0SlCFJ9BHykqSAPHaRL
@@ -3092,7 +3092,7 @@
         AAAAAIAxa4MAAAAAAABj1gYBAAAAAADG6//9//7/7qKM6pK0ZgYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="github.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAQ
         KQAAECkB9XjiDwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD0zSURBVHhe7d0H
@@ -3360,7 +3360,7 @@
         3tYps79dAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="youtube.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABEwAAARMCAYAAACDAQa6AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         vQl8XGlW3i3o6XZ3z8YMs/WMp3u6x91eut1eZO27N1mWbFlLSbK8u5cZSAYSSFgCkw4EAgHCQAj7FxKS
@@ -10811,4 +10811,7 @@
         3Sc3fqqMyRUpUhRm+pM/+f8BrMIhdTufPsYAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="animationtimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
