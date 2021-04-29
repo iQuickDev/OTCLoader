@@ -37,9 +37,6 @@ namespace OTCLoader
             website.MouseLeave += website_MouseLeave;
             quicksense.MouseEnter += quicksense_MouseEnter;
             quicksense.MouseLeave += quicksense_MouseLeave;
-
-            pictureBox1.Parent = xuiCircleProgressBar1;
-            pictureBox1.Location = new Point(xuiCircleProgressBar1.Width / 2 - pictureBox1.Width / 2, xuiCircleProgressBar1.Height / 2 - pictureBox1.Height / 2);
         }
 
         internal Size defaultsize = new Size(50,50);
@@ -79,7 +76,7 @@ namespace OTCLoader
 
         private void website_Click(object sender, EventArgs e)
         {
-            Process.Start("https://iquickgaming.weebly.com");
+            Process.Start("https://iquick.ml");
         }
 
         private void quicksense_Click(object sender, EventArgs e)

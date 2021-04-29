@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Http;
 
 namespace OTCLoader
 {
     public partial class Settings : UserControl
     {
+        HttpClient wordsGrabber = new HttpClient();
         public Settings()
         {
             InitializeComponent();
+            delaysetter.Click += delaysetter_Click;
+            usernamesetter.Click += usernamesetter_ClickAsync;
             thememode.Checked = Properties.Settings.Default.lightmode;
             injectiondelay.Text = Properties.Settings.Default.injectiondelay.ToString();
         }
@@ -20,7 +25,7 @@ namespace OTCLoader
             }
         }
 
-        internal void setter_Click(object sender, EventArgs e)
+        internal void delaysetter_Click(object sender, EventArgs e)
         {
             if (injectiondelay.Text.Length == 0)
             {
@@ -30,6 +35,32 @@ namespace OTCLoader
             ulong parseddelay = ulong.Parse(injectiondelay.Text);
             Properties.Settings.Default.injectiondelay = parseddelay;
             Properties.Settings.Default.Save();
+        }
+
+        internal async void usernamesetter_ClickAsync(object sender, EventArgs e)
+        {
+            string badWordsList = await wordsGrabber.GetStringAsync("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/master/bannedwords");
+            string[] badWords = badWordsList.Split(',');
+
+            if (usernamefield.Text.Length == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < badWords.Length; i++)
+            {
+                if (usernamefield.Text.ToLower().Contains(badWords[i]))
+                {
+                    MessageBox.Show("Name unavailable");
+                    usernamefield.Clear();
+                    return;
+                }
+            }
+
+            Properties.Settings.Default.username = usernamefield.Text;
+            Properties.Settings.Default.Save();
+
+            return;
         }
     }
 }

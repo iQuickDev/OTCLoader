@@ -17,11 +17,6 @@ namespace OTCLoader
         {
             AppDomain.CurrentDomain.AssemblyResolve += (_, e) =>
             {
-                if (e.Name.ToLower().Contains("xander"))
-                {
-                    return Assembly.Load(Resources.XanderUI);
-                }
-
                 if (e.Name.ToLower().Contains("guna"))
                 {
                     return Assembly.Load(Resources.Guna_UI2);
@@ -43,32 +38,37 @@ namespace OTCLoader
             Properties.Settings.Default.timeslaunched++;
             Properties.Settings.Default.Save();
 
+            if (Properties.Settings.Default.username == "unset")
+            {
+                Properties.Settings.Default.username = Environment.UserName;
+                Properties.Settings.Default.Save();
+            }
 
-            // DISCORD WEBHOOK (uncomment if you have a webhook on discord)
+            //DISCORD WEBHOOK(uncomment if you have a webhook on discord)
 
-            //if (!Properties.Settings.Default.firstlaunch)
-            //{
-            //    WebRequest wr = (HttpWebRequest)WebRequest.Create("https://discordwebhooklink");
-            //    wr.ContentType = "application/json";
-            //    wr.Method = "POST";
-            //    using (var sw = new StreamWriter(wr.GetRequestStream()))
-            //    {
-            //        sw.Write(Resources.Json.Set(new[]
-            //        {
+            if (!Properties.Settings.Default.firstlaunch)
+            {
+                WebRequest wr = (HttpWebRequest)WebRequest.Create("https://discordwebhooklink");
+                wr.ContentType = "application/json";
+                wr.Method = "POST";
+                using (var sw = new StreamWriter(wr.GetRequestStream()))
+                {
+                    sw.Write(Resources.Json.Set(new[]
+                    {
+                    ("UserName", Properties.Settings.Default.username),
+                    ("UserName", Environment.UserName),
+                    ("TimeNow", DateTime.UtcNow.ToString("hh:mm tt MM/dd/yyyy")),
+                    ("Version", Updater.CurrentVersion),
+                    ("Theme", Properties.Settings.Default.lightmode ? "Light" : "Dark"),
+                    ("Music", Properties.Settings.Default.sound ? "On" : "Off"),
+                    ("TimesLaunched", $"{Properties.Settings.Default.timeslaunched}"),
+                    ("InjectionDelay", $"{Properties.Settings.Default.injectiondelay}")
 
-            //        ("UserName", Environment.UserName),
-            //        ("TimeNow", DateTime.UtcNow.ToString("hh:mm tt MM/dd/yyyy")),
-            //        ("Version", Updater.CurrentVersion),
-            //        ("Theme", Properties.Settings.Default.lightmode ? "Light" : "Dark"),
-            //        ("Music", Properties.Settings.Default.sound ? "On" : "Off"),
-            //        ("TimesLaunched", $"{Properties.Settings.Default.timeslaunched}"),
-            //        ("InjectionDelay", $"{Properties.Settings.Default.injectiondelay}")
+                    }));
+                }
 
-            //        }));
-            //    }
-
-            //    var response = (HttpWebResponse)wr.GetResponse();
-            //}
+                var response = (HttpWebResponse)wr.GetResponse();
+            }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

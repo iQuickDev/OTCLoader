@@ -17,5 +17,8 @@
     <Setting Name="injectiondelay" Type="System.UInt64" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">unset</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

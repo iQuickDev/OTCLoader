@@ -43,7 +43,6 @@
             this.playaudio = new System.Windows.Forms.PictureBox();
             this.LoggerRefresh = new System.Windows.Forms.Timer(this.components);
             this.ConnectionRefresh = new System.Windows.Forms.Timer(this.components);
-            this.updateavailable = new System.Windows.Forms.PictureBox();
             this.SettingsSelector = new System.Windows.Forms.Label();
             this.Titlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stopaudio)).BeginInit();
@@ -53,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unpin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playaudio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.updateavailable)).BeginInit();
             this.SuspendLayout();
             // 
             // DebugSelector
@@ -206,18 +204,6 @@
             this.ConnectionRefresh.Interval = 5000;
             this.ConnectionRefresh.Tick += new System.EventHandler(this.ConnectionRefresh_Tick);
             // 
-            // updateavailable
-            // 
-            this.updateavailable.BackColor = System.Drawing.Color.Transparent;
-            this.updateavailable.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.updateavailable.Image = ((System.Drawing.Image)(resources.GetObject("updateavailable.Image")));
-            this.updateavailable.Location = new System.Drawing.Point(247, 38);
-            this.updateavailable.Name = "updateavailable";
-            this.updateavailable.Size = new System.Drawing.Size(40, 40);
-            this.updateavailable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.updateavailable.TabIndex = 40;
-            this.updateavailable.TabStop = false;
-            // 
             // SettingsSelector
             // 
             this.SettingsSelector.AutoSize = true;
@@ -240,7 +226,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(300, 350);
             this.Controls.Add(this.SettingsSelector);
-            this.Controls.Add(this.updateavailable);
             this.Controls.Add(this.Titlebar);
             this.Controls.Add(this.DebugSelector);
             this.Controls.Add(this.LoaderSelector);
@@ -260,7 +245,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.title)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unpin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playaudio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.updateavailable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +259,6 @@
         public System.Windows.Forms.Label CreditsSelector;
         public System.Windows.Forms.PictureBox pin;
         public System.Windows.Forms.PictureBox unpin;
-        internal System.Windows.Forms.PictureBox updateavailable;
         public System.Windows.Forms.Label SettingsSelector;
         private System.Windows.Forms.PictureBox stopaudio;
         private System.Windows.Forms.PictureBox playaudio;

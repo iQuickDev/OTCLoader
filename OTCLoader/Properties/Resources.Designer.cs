@@ -140,15 +140,5 @@ namespace OTCLoader.Properties {
                 return ResourceManager.GetStream("onetapsong", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] XanderUI {
-            get {
-                object obj = ResourceManager.GetObject("XanderUI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

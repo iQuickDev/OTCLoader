@@ -18,6 +18,7 @@ namespace OTCLoader
         public Offline offline = new Offline();
         public Settings settings = new Settings();
         public Terms terms = new Terms();
+        public SettingsSetup settingssetup = new SettingsSetup();
 
 
         [DllImport("Gdi32.dll")]
@@ -45,9 +46,9 @@ namespace OTCLoader
         {
             InitializeComponent();
             terms.acceptbtn.Click += TermsAccepted;
+            settingssetup.setupdone.Click += SetupDone;
             playaudio.Click += playaudio_Click;
             stopaudio.Click += stopaudio_Click;
-            updateavailable.Click += UpdateAvailable_Click;
             pin.Click += Pin_Click;
             unpin.Click += UnPin_Click;
             Titlebar.MouseDown += panel1_MouseDown;
@@ -58,8 +59,8 @@ namespace OTCLoader
             title.MouseUp += pictureBox2_MouseUp;
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            loader.Parent = credits.Parent = logger.Parent = updater.Parent = offline.Parent = settings.Parent = terms.Parent = this;
-            loader.Location = credits.Location = logger.Location = updater.Location = offline.Location = settings.Location = terms.Location = Point.Empty;
+            loader.Parent = credits.Parent = logger.Parent = updater.Parent = offline.Parent = settings.Parent = settingssetup.Parent = terms.Parent = this;
+            loader.Location = credits.Location = logger.Location = updater.Location = offline.Location = settings.Location = settingssetup.Location = terms.Location = Point.Empty;
 
             minimize.Click += delegate
             {
@@ -113,6 +114,13 @@ namespace OTCLoader
                 RefreshTheme();
             };
 
+            settingssetup.thememodesetup.CheckedChanged += delegate
+            {
+                Properties.Settings.Default.lightmode = !Properties.Settings.Default.lightmode;
+                Properties.Settings.Default.Save();
+                RefreshTheme();
+            };
+
             if (Properties.Settings.Default.firstlaunch)
             {
                 terms.BringToFront();
@@ -122,6 +130,12 @@ namespace OTCLoader
 
         internal void TermsAccepted(object sender, EventArgs e)
         {
+            settingssetup.BringToFront();
+            Titlebar.BringToFront();
+        }
+
+        internal void SetupDone(object sender, EventArgs e)
+        {
             loader.BringToFront();
             Titlebar.BringToFront();
             CreditsSelector.BringToFront();
@@ -129,7 +143,6 @@ namespace OTCLoader
             DebugSelector.BringToFront();
             SettingsSelector.BringToFront();
         }
-
 
         internal void RefreshTheme()
         {
@@ -142,13 +155,20 @@ namespace OTCLoader
                 offline.BackColor = Color.White;
                 settings.BackColor = Color.White;
                 loader.BackColor = Color.White;
+                settingssetup.BackColor = Color.White;
                 Titlebar.BackColor = ColorTranslator.FromHtml("#c8c8c8");
                 settings.injectiondelay.FillColor = ColorTranslator.FromHtml("#c8c8c8");
                 settings.injectiondelay.PlaceholderForeColor = Color.Black;
+                settings.usernamefield.FillColor = ColorTranslator.FromHtml("#c8c8c8");
+                settings.usernamefield.PlaceholderForeColor = Color.Black;
+                settingssetup.usernamefieldsetup.FillColor = ColorTranslator.FromHtml("#c8c8c8");
+                settingssetup.usernamefieldsetup.PlaceholderForeColor = Color.Black;
+
                 foreach (Control controlupdater in updater.Controls)
                 {
                     controlupdater.ForeColor = Color.Black;
                 }
+
                 foreach (Control control in logger.Controls)
                 {
                     control.ForeColor = Color.Black;
@@ -164,8 +184,13 @@ namespace OTCLoader
                 settings.BackColor = ColorTranslator.FromHtml("#141414");
                 loader.BackColor = ColorTranslator.FromHtml("#141414");
                 Titlebar.BackColor = ColorTranslator.FromHtml("#1e1e1e");
+                settingssetup.BackColor = ColorTranslator.FromHtml("#141414");
                 settings.injectiondelay.FillColor = ColorTranslator.FromHtml("#1e1e1e");
                 settings.injectiondelay.PlaceholderForeColor = Color.White;
+                settings.usernamefield.FillColor = ColorTranslator.FromHtml("#1e1e1e");
+                settings.usernamefield.PlaceholderForeColor = Color.White;
+                settingssetup.usernamefieldsetup.FillColor = ColorTranslator.FromHtml("#1e1e1e");
+                settingssetup.usernamefieldsetup.PlaceholderForeColor = Color.White;
                 foreach (Control controlupdater in updater.Controls)
                 {
                     controlupdater.ForeColor = Color.White;
@@ -175,13 +200,6 @@ namespace OTCLoader
                     control.ForeColor = Color.White;
                 }
             }
-        }
-
-        internal void UpdateAvailable_Click(object sender, EventArgs e)
-        {
-            updater.BringToFront();
-            Titlebar.BringToFront();
-            updateavailable.Hide();
         }
 
         internal DiscordRpcClient client;
@@ -220,16 +238,9 @@ namespace OTCLoader
         {
             new Thread(() =>
             {
-                if (updater.showupdatebutton)
-                {
-                    updateavailable.Invoke((MethodInvoker)delegate
-                    {
-                        updateavailable.BringToFront();
-                    });
-                }
                 ConnectionChecker();
-        }).Start();
-    }
+            }).Start();
+        }
 
         internal void ConnectionChecker()
         {

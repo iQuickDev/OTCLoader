@@ -37,20 +37,24 @@ namespace OTCLoader
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.injectiondelay = new Guna.UI2.WinForms.Guna2TextBox();
-            this.setter = new Guna.UI2.WinForms.Guna2Button();
+            this.delaysetter = new Guna.UI2.WinForms.Guna2Button();
+            this.usernameimg = new System.Windows.Forms.PictureBox();
+            this.usernamefield = new Guna.UI2.WinForms.Guna2TextBox();
+            this.usernamesetter = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.settingsimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.themeimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionsettingsimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameimg)).BeginInit();
             this.SuspendLayout();
             // 
             // settingsimg
             // 
             this.settingsimg.Image = ((System.Drawing.Image)(resources.GetObject("settingsimg.Image")));
-            this.settingsimg.Location = new System.Drawing.Point(41, 46);
+            this.settingsimg.Location = new System.Drawing.Point(38, 44);
             this.settingsimg.Name = "settingsimg";
-            this.settingsimg.Size = new System.Drawing.Size(219, 57);
+            this.settingsimg.Size = new System.Drawing.Size(225, 57);
             this.settingsimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.settingsimg.TabIndex = 0;
             this.settingsimg.TabStop = false;
@@ -58,7 +62,7 @@ namespace OTCLoader
             // themeimg
             // 
             this.themeimg.Image = ((System.Drawing.Image)(resources.GetObject("themeimg.Image")));
-            this.themeimg.Location = new System.Drawing.Point(75, 229);
+            this.themeimg.Location = new System.Drawing.Point(75, 214);
             this.themeimg.Name = "themeimg";
             this.themeimg.Size = new System.Drawing.Size(150, 30);
             this.themeimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,9 +72,9 @@ namespace OTCLoader
             // injectionsettingsimg
             // 
             this.injectionsettingsimg.Image = ((System.Drawing.Image)(resources.GetObject("injectionsettingsimg.Image")));
-            this.injectionsettingsimg.Location = new System.Drawing.Point(75, 131);
+            this.injectionsettingsimg.Location = new System.Drawing.Point(21, 122);
             this.injectionsettingsimg.Name = "injectionsettingsimg";
-            this.injectionsettingsimg.Size = new System.Drawing.Size(150, 35);
+            this.injectionsettingsimg.Size = new System.Drawing.Size(120, 30);
             this.injectionsettingsimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.injectionsettingsimg.TabIndex = 2;
             this.injectionsettingsimg.TabStop = false;
@@ -89,7 +93,7 @@ namespace OTCLoader
             this.thememode.CheckedState.InnerBorderRadius = 10;
             this.thememode.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.thememode.CheckedState.Parent = this.thememode;
-            this.thememode.Location = new System.Drawing.Point(118, 274);
+            this.thememode.Location = new System.Drawing.Point(118, 259);
             this.thememode.Margin = new System.Windows.Forms.Padding(0);
             this.thememode.Name = "thememode";
             this.thememode.ShadowDecoration.Parent = this.thememode;
@@ -108,7 +112,7 @@ namespace OTCLoader
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(80, 273);
+            this.pictureBox1.Location = new System.Drawing.Point(80, 258);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,7 +122,7 @@ namespace OTCLoader
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(193, 273);
+            this.pictureBox2.Location = new System.Drawing.Point(193, 258);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,10 +132,9 @@ namespace OTCLoader
             // injectiondelay
             // 
             this.injectiondelay.Animated = true;
-            this.injectiondelay.AutoRoundedCorners = true;
             this.injectiondelay.BackColor = System.Drawing.Color.Transparent;
             this.injectiondelay.BorderColor = System.Drawing.Color.Black;
-            this.injectiondelay.BorderRadius = 11;
+            this.injectiondelay.BorderRadius = 5;
             this.injectiondelay.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.injectiondelay.DefaultText = "";
             this.injectiondelay.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -142,11 +145,11 @@ namespace OTCLoader
             this.injectiondelay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.injectiondelay.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.injectiondelay.FocusedState.Parent = this.injectiondelay;
-            this.injectiondelay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.injectiondelay.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.injectiondelay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(89)))), ((int)(((byte)(207)))));
             this.injectiondelay.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.injectiondelay.HoverState.Parent = this.injectiondelay;
-            this.injectiondelay.Location = new System.Drawing.Point(155, 182);
+            this.injectiondelay.Location = new System.Drawing.Point(21, 155);
             this.injectiondelay.Name = "injectiondelay";
             this.injectiondelay.PasswordChar = '\0';
             this.injectiondelay.PlaceholderForeColor = System.Drawing.Color.White;
@@ -157,46 +160,119 @@ namespace OTCLoader
             this.injectiondelay.TabIndex = 7;
             this.injectiondelay.TextChanged += new System.EventHandler(this.injectiondelay_TextChanged);
             // 
-            // setter
+            // delaysetter
             // 
-            this.setter.Animated = true;
-            this.setter.AnimatedGIF = true;
-            this.setter.AutoRoundedCorners = true;
-            this.setter.BackColor = System.Drawing.Color.Transparent;
-            this.setter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(115)))), ((int)(((byte)(202)))));
-            this.setter.BorderRadius = 11;
-            this.setter.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.setter.CheckedState.Parent = this.setter;
-            this.setter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.setter.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("setter.CustomImages.Image")));
-            this.setter.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.setter.CustomImages.ImageOffset = new System.Drawing.Point(0, 1);
-            this.setter.CustomImages.Parent = this.setter;
-            this.setter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(120)))), ((int)(((byte)(237)))));
-            this.setter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.setter.ForeColor = System.Drawing.Color.Transparent;
-            this.setter.HoverState.Parent = this.setter;
-            this.setter.Location = new System.Drawing.Point(75, 182);
-            this.setter.Name = "setter";
-            this.setter.PressedColor = System.Drawing.Color.Aqua;
-            this.setter.PressedDepth = 255;
-            this.setter.ShadowDecoration.BorderRadius = 15;
-            this.setter.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(202)))), ((int)(((byte)(242)))));
-            this.setter.ShadowDecoration.Depth = 15;
-            this.setter.ShadowDecoration.Enabled = true;
-            this.setter.ShadowDecoration.Parent = this.setter;
-            this.setter.Size = new System.Drawing.Size(70, 25);
-            this.setter.TabIndex = 20;
-            this.setter.Text = "SET";
-            this.setter.UseTransparentBackground = true;
-            this.setter.Click += new System.EventHandler(this.setter_Click);
+            this.delaysetter.Animated = true;
+            this.delaysetter.AnimatedGIF = true;
+            this.delaysetter.BackColor = System.Drawing.Color.Transparent;
+            this.delaysetter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(115)))), ((int)(((byte)(202)))));
+            this.delaysetter.BorderRadius = 5;
+            this.delaysetter.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.delaysetter.CheckedState.Parent = this.delaysetter;
+            this.delaysetter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delaysetter.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("delaysetter.CustomImages.Image")));
+            this.delaysetter.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.delaysetter.CustomImages.ImageOffset = new System.Drawing.Point(0, 1);
+            this.delaysetter.CustomImages.Parent = this.delaysetter;
+            this.delaysetter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(120)))), ((int)(((byte)(237)))));
+            this.delaysetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delaysetter.ForeColor = System.Drawing.Color.Transparent;
+            this.delaysetter.HoverState.Parent = this.delaysetter;
+            this.delaysetter.Location = new System.Drawing.Point(101, 155);
+            this.delaysetter.Name = "delaysetter";
+            this.delaysetter.PressedColor = System.Drawing.Color.Aqua;
+            this.delaysetter.PressedDepth = 255;
+            this.delaysetter.ShadowDecoration.BorderRadius = 15;
+            this.delaysetter.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(202)))), ((int)(((byte)(242)))));
+            this.delaysetter.ShadowDecoration.Depth = 15;
+            this.delaysetter.ShadowDecoration.Enabled = true;
+            this.delaysetter.ShadowDecoration.Parent = this.delaysetter;
+            this.delaysetter.Size = new System.Drawing.Size(40, 25);
+            this.delaysetter.TabIndex = 20;
+            this.delaysetter.Text = "SET";
+            this.delaysetter.UseTransparentBackground = true;
+            // 
+            // usernameimg
+            // 
+            this.usernameimg.Image = ((System.Drawing.Image)(resources.GetObject("usernameimg.Image")));
+            this.usernameimg.Location = new System.Drawing.Point(162, 123);
+            this.usernameimg.Name = "usernameimg";
+            this.usernameimg.Size = new System.Drawing.Size(125, 25);
+            this.usernameimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.usernameimg.TabIndex = 21;
+            this.usernameimg.TabStop = false;
+            // 
+            // usernamefield
+            // 
+            this.usernamefield.Animated = true;
+            this.usernamefield.BackColor = System.Drawing.Color.Transparent;
+            this.usernamefield.BorderColor = System.Drawing.Color.Black;
+            this.usernamefield.BorderRadius = 5;
+            this.usernamefield.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.usernamefield.DefaultText = "";
+            this.usernamefield.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.usernamefield.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.usernamefield.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.usernamefield.DisabledState.Parent = this.usernamefield;
+            this.usernamefield.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.usernamefield.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.usernamefield.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.usernamefield.FocusedState.Parent = this.usernamefield;
+            this.usernamefield.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.usernamefield.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(89)))), ((int)(((byte)(207)))));
+            this.usernamefield.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.usernamefield.HoverState.Parent = this.usernamefield;
+            this.usernamefield.Location = new System.Drawing.Point(162, 155);
+            this.usernamefield.Name = "usernamefield";
+            this.usernamefield.PasswordChar = '\0';
+            this.usernamefield.PlaceholderForeColor = System.Drawing.Color.White;
+            this.usernamefield.PlaceholderText = "username";
+            this.usernamefield.SelectedText = "";
+            this.usernamefield.ShadowDecoration.Parent = this.usernamefield;
+            this.usernamefield.Size = new System.Drawing.Size(70, 25);
+            this.usernamefield.TabIndex = 22;
+            // 
+            // usernamesetter
+            // 
+            this.usernamesetter.Animated = true;
+            this.usernamesetter.AnimatedGIF = true;
+            this.usernamesetter.BackColor = System.Drawing.Color.Transparent;
+            this.usernamesetter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(115)))), ((int)(((byte)(202)))));
+            this.usernamesetter.BorderRadius = 5;
+            this.usernamesetter.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.usernamesetter.CheckedState.Parent = this.usernamesetter;
+            this.usernamesetter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.usernamesetter.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("usernamesetter.CustomImages.Image")));
+            this.usernamesetter.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usernamesetter.CustomImages.ImageOffset = new System.Drawing.Point(0, 1);
+            this.usernamesetter.CustomImages.Parent = this.usernamesetter;
+            this.usernamesetter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(120)))), ((int)(((byte)(237)))));
+            this.usernamesetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernamesetter.ForeColor = System.Drawing.Color.Transparent;
+            this.usernamesetter.HoverState.Parent = this.usernamesetter;
+            this.usernamesetter.Location = new System.Drawing.Point(242, 155);
+            this.usernamesetter.Name = "usernamesetter";
+            this.usernamesetter.PressedColor = System.Drawing.Color.Aqua;
+            this.usernamesetter.PressedDepth = 255;
+            this.usernamesetter.ShadowDecoration.BorderRadius = 15;
+            this.usernamesetter.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(202)))), ((int)(((byte)(242)))));
+            this.usernamesetter.ShadowDecoration.Depth = 15;
+            this.usernamesetter.ShadowDecoration.Enabled = true;
+            this.usernamesetter.ShadowDecoration.Parent = this.usernamesetter;
+            this.usernamesetter.Size = new System.Drawing.Size(40, 25);
+            this.usernamesetter.TabIndex = 23;
+            this.usernamesetter.Text = "SET";
+            this.usernamesetter.UseTransparentBackground = true;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Controls.Add(this.setter);
+            this.Controls.Add(this.usernamesetter);
+            this.Controls.Add(this.usernamefield);
+            this.Controls.Add(this.usernameimg);
+            this.Controls.Add(this.delaysetter);
             this.Controls.Add(this.injectiondelay);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -212,6 +288,7 @@ namespace OTCLoader
             ((System.ComponentModel.ISupportInitialize)(this.injectionsettingsimg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameimg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +302,9 @@ namespace OTCLoader
         private System.Windows.Forms.PictureBox pictureBox2;
         public Guna.UI2.WinForms.Guna2TextBox injectiondelay;
         public Guna.UI2.WinForms.Guna2ToggleSwitch thememode;
-        private Guna.UI2.WinForms.Guna2Button setter;
+        private Guna.UI2.WinForms.Guna2Button delaysetter;
+        private System.Windows.Forms.PictureBox usernameimg;
+        public Guna.UI2.WinForms.Guna2TextBox usernamefield;
+        private Guna.UI2.WinForms.Guna2Button usernamesetter;
     }
 }

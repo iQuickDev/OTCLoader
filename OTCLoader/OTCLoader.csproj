@@ -129,6 +129,12 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsSetup.Designer.cs">
+      <DependentUpon>SettingsSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Terms.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SettingsSetup.resx">
+      <DependentUpon>SettingsSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Terms.resx">
       <DependentUpon>Terms.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,7 +198,6 @@
     <Content Include="Resources\DiscordRPC.dll" />
     <Content Include="Resources\Guna.UI2.dll" />
     <Content Include="Resources\Newtonsoft.Json.dll" />
-    <None Include="Resources\XanderUI.dll" />
     <None Include="Resources\onetapsong.wav" />
     <None Include="Resources\data.json" />
     <None Include="Resources\load.wav" />

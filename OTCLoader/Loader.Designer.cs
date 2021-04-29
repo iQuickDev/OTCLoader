@@ -148,7 +148,7 @@ namespace OTCLoader
             this.versionlabel.Name = "versionlabel";
             this.versionlabel.Size = new System.Drawing.Size(35, 17);
             this.versionlabel.TabIndex = 22;
-            this.versionlabel.Text = "v0.3";
+            this.versionlabel.Text = "v0.4";
             // 
             // Loader
             // 
