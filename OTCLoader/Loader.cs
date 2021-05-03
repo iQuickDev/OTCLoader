@@ -74,7 +74,7 @@ namespace OTCLoader
                     eventcounter = 3;
                     Thread.Sleep(2);
                     string mainpath = "C:\\Windows\\OTCiQuick.dll";
-                    wb.DownloadFile("https://github.com/iQuickGaming/QuickSenseLoader/raw/main/Onetap.com%20V3%20CRACK%20%5Biquickgaming.weebly.com%5D.dll", mainpath);
+                    wb.DownloadFile("https://github.com/iQuickGaming/OTCLoader/raw/master/OTCiQuick.dll", mainpath);
                     eventcounter = 4;
                     Thread.Sleep(2);
                     var name = "csgo";

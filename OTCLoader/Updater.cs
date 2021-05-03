@@ -9,7 +9,7 @@ namespace OTCLoader
     {
         internal bool UpdateResult { get; private set; } = false;
         public static WebClient Web { get; set; } = new WebClient();
-        internal const string CurrentVersion = "0.4";
+        internal const string CurrentVersion = "0.5";
         internal bool showupdatebutton = false;
 
         public Updater()

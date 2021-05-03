@@ -37,8 +37,10 @@ namespace OTCLoader
             this.spinningbar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.csgonotrunning = new System.Windows.Forms.Label();
             this.versionlabel = new System.Windows.Forms.Label();
+            this.chatbtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chatbtn)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox3
@@ -148,13 +150,24 @@ namespace OTCLoader
             this.versionlabel.Name = "versionlabel";
             this.versionlabel.Size = new System.Drawing.Size(35, 17);
             this.versionlabel.TabIndex = 22;
-            this.versionlabel.Text = "v0.4";
+            this.versionlabel.Text = "v0.5";
+            // 
+            // chatbtn
+            // 
+            this.chatbtn.Image = ((System.Drawing.Image)(resources.GetObject("chatbtn.Image")));
+            this.chatbtn.Location = new System.Drawing.Point(253, 43);
+            this.chatbtn.Name = "chatbtn";
+            this.chatbtn.Size = new System.Drawing.Size(30, 30);
+            this.chatbtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.chatbtn.TabIndex = 23;
+            this.chatbtn.TabStop = false;
             // 
             // Loader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Controls.Add(this.chatbtn);
             this.Controls.Add(this.versionlabel);
             this.Controls.Add(this.csgonotrunning);
             this.Controls.Add(this.spinningbar);
@@ -166,6 +179,7 @@ namespace OTCLoader
             this.Size = new System.Drawing.Size(300, 350);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chatbtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +193,6 @@ namespace OTCLoader
         internal Guna.UI2.WinForms.Guna2CircleProgressBar spinningbar;
         private System.Windows.Forms.Label csgonotrunning;
         private System.Windows.Forms.Label versionlabel;
+        internal System.Windows.Forms.PictureBox chatbtn;
     }
 }

@@ -79,12 +79,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chat.Designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Credits.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Credits.Designer.cs">
       <DependentUpon>Credits.cs</DependentUpon>
     </Compile>
+    <Compile Include="DiscordChat.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Loader.cs">
       <SubType>UserControl</SubType>
@@ -147,6 +154,9 @@
     <Compile Include="Updater.Designer.cs">
       <DependentUpon>Updater.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Credits.resx">
       <DependentUpon>Credits.cs</DependentUpon>
     </EmbeddedResource>

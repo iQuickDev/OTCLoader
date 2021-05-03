@@ -7,7 +7,7 @@ namespace OTCLoader
 {
     public partial class Settings : UserControl
     {
-        HttpClient wordsGrabber = new HttpClient();
+        internal HttpClient wordsGrabber = new HttpClient();
         public Settings()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace OTCLoader
 
         internal async void usernamesetter_ClickAsync(object sender, EventArgs e)
         {
+            string tempUname = usernamefield.Text.ToLower();
             string badWordsList = await wordsGrabber.GetStringAsync("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/master/bannedwords");
             string[] badWords = badWordsList.Split(',');
 
@@ -49,7 +50,7 @@ namespace OTCLoader
 
             for (int i = 0; i < badWords.Length; i++)
             {
-                if (usernamefield.Text.ToLower().Contains(badWords[i]))
+                if (tempUname.Contains(badWords[i]))
                 {
                     MessageBox.Show("Name unavailable");
                     usernamefield.Clear();

@@ -22,6 +22,7 @@ namespace OTCLoader
 
         internal async void usernamesettersetup_ClickAsync(object sender, EventArgs e)
         {
+            string tempUname = usernamefieldsetup.Text.ToLower();
             string badWordsList = await wordsGrabber.GetStringAsync("https://raw.githubusercontent.com/iQuickGaming/OTCLoader/master/bannedwords");
             string[] badWords = badWordsList.Split(',');
 
@@ -32,7 +33,7 @@ namespace OTCLoader
 
             for (int i = 0; i < badWords.Length; i++)
             {
-                if (usernamefieldsetup.Text.ToLower().Contains(badWords[i]))
+                if (tempUname.Contains(badWords[i]))
                 {
                     MessageBox.Show("Name unavailable");
                     usernamefieldsetup.Clear();

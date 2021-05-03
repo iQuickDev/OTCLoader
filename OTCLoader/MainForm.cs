@@ -19,6 +19,7 @@ namespace OTCLoader
         public Settings settings = new Settings();
         public Terms terms = new Terms();
         public SettingsSetup settingssetup = new SettingsSetup();
+        public Chat chat = new Chat();
 
 
         [DllImport("Gdi32.dll")]
@@ -45,6 +46,7 @@ namespace OTCLoader
         internal MainForm()
         {
             InitializeComponent();
+            loader.chatbtn.Click += OpenChat;
             terms.acceptbtn.Click += TermsAccepted;
             settingssetup.setupdone.Click += SetupDone;
             playaudio.Click += playaudio_Click;
@@ -59,8 +61,8 @@ namespace OTCLoader
             title.MouseUp += pictureBox2_MouseUp;
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            loader.Parent = credits.Parent = logger.Parent = updater.Parent = offline.Parent = settings.Parent = settingssetup.Parent = terms.Parent = this;
-            loader.Location = credits.Location = logger.Location = updater.Location = offline.Location = settings.Location = settingssetup.Location = terms.Location = Point.Empty;
+            loader.Parent = credits.Parent = logger.Parent = updater.Parent = offline.Parent = settings.Parent = chat.Parent = settingssetup.Parent = terms.Parent = this;
+            loader.Location = credits.Location = logger.Location = updater.Location = offline.Location = settings.Location = chat.Location = settingssetup.Location = terms.Location = Point.Empty;
 
             minimize.Click += delegate
             {
@@ -163,6 +165,10 @@ namespace OTCLoader
                 settings.usernamefield.PlaceholderForeColor = Color.Black;
                 settingssetup.usernamefieldsetup.FillColor = ColorTranslator.FromHtml("#c8c8c8");
                 settingssetup.usernamefieldsetup.PlaceholderForeColor = Color.Black;
+                chat.BackColor = Color.White;
+                chat.chatbox.FillColor = ColorTranslator.FromHtml("#c8c8c8");
+                chat.alertbox.FillColor = ColorTranslator.FromHtml("#c8c8c8");
+                chat.alertbox.ForeColor = Color.Black;
 
                 foreach (Control controlupdater in updater.Controls)
                 {
@@ -191,6 +197,10 @@ namespace OTCLoader
                 settings.usernamefield.PlaceholderForeColor = Color.White;
                 settingssetup.usernamefieldsetup.FillColor = ColorTranslator.FromHtml("#1e1e1e");
                 settingssetup.usernamefieldsetup.PlaceholderForeColor = Color.White;
+                chat.BackColor = ColorTranslator.FromHtml("#141414");
+                chat.chatbox.FillColor = ColorTranslator.FromHtml("#1e1e1e");
+                chat.alertbox.FillColor = ColorTranslator.FromHtml("#202020");
+                chat.alertbox.ForeColor = Color.White;
                 foreach (Control controlupdater in updater.Controls)
                 {
                     controlupdater.ForeColor = Color.White;
@@ -220,6 +230,16 @@ namespace OTCLoader
                     LargeImageText = "Made by iQuick#0502",
                 }
             });
+        }
+
+        internal void OpenChat(object sender, EventArgs e)
+        {
+            chat.BringToFront();
+            Titlebar.BringToFront();
+            CreditsSelector.BringToFront();
+            LoaderSelector.BringToFront();
+            DebugSelector.BringToFront();
+            SettingsSelector.BringToFront();
         }
 
         internal void Pin_Click(object sender, EventArgs e)
