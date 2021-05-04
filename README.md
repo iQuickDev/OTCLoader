@@ -34,4 +34,4 @@ We dont take any responsibility use this software at own risk. If you dont want 
 
 ## **How can i support the Maker of this software?**
 
-You can support the Maker of the Software over at [PayPal](https://www.paypal.com/paypalme/iquickgaming)
+You can support the Dev of the Software over at [PayPal](https://www.paypal.com/paypalme/iquickgaming)
