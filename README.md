@@ -18,20 +18,20 @@ Here is a step by step guide how to use the OTCLoader.
 
 ## **How much does the Software cost?**
 
-The Software is completly free to use and dosnt need any payment.
+The Software is completly free to use and doesn't need any payment.
 
-## **Whats the discord link?**
+## **What's the discord link?**
 
 You can Join the discord using this [link](https://discord.gg/rsmj8QAhD4)
 
 ## **Is this Software a virus?**
 
-The Software is completly open source and dosnt contain anything that can harm your Computer.
+The Software is completely open source and doesn't contain anything that can harm your Computer.
 
-## **My Precious Steam Account got banned what do i do now?**
+## **My Precious Steam Account got banned, what do i do now?**
 
-We dont take any responsibility use this software at own risk. If you dont want to get banned use a [Steam Account Generator](https://accgen.cathook.club).
+We dont take any responsibility, use this software at own risk. If you don't want to get banned use a [Steam Account Generator](https://accgen.cathook.club).
 
-## **How can i support the Maker of this software?**
+## **How can i support the Developer of this software?**
 
 You can support the Dev of the Software over at [PayPal](https://www.paypal.com/paypalme/iquickgaming)
