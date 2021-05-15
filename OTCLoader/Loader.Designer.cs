@@ -38,9 +38,14 @@ namespace OTCLoader
             this.csgonotrunning = new System.Windows.Forms.Label();
             this.versionlabel = new System.Windows.Forms.Label();
             this.chatbtn = new System.Windows.Forms.PictureBox();
+            this.alertbox = new Guna.UI2.WinForms.Guna2Panel();
+            this.alerttext = new System.Windows.Forms.Label();
+            this.closealertbtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chatbtn)).BeginInit();
+            this.alertbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closealertbtn)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox3
@@ -150,7 +155,7 @@ namespace OTCLoader
             this.versionlabel.Name = "versionlabel";
             this.versionlabel.Size = new System.Drawing.Size(35, 17);
             this.versionlabel.TabIndex = 22;
-            this.versionlabel.Text = "v0.5";
+            this.versionlabel.Text = "v0.6";
             // 
             // chatbtn
             // 
@@ -162,11 +167,45 @@ namespace OTCLoader
             this.chatbtn.TabIndex = 23;
             this.chatbtn.TabStop = false;
             // 
+            // alertbox
+            // 
+            this.alertbox.BackColor = System.Drawing.Color.Transparent;
+            this.alertbox.BorderRadius = 5;
+            this.alertbox.Controls.Add(this.closealertbtn);
+            this.alertbox.Controls.Add(this.alerttext);
+            this.alertbox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(105)))));
+            this.alertbox.Location = new System.Drawing.Point(3, 32);
+            this.alertbox.Name = "alertbox";
+            this.alertbox.ShadowDecoration.Parent = this.alertbox;
+            this.alertbox.Size = new System.Drawing.Size(295, 30);
+            this.alertbox.TabIndex = 24;
+            // 
+            // alerttext
+            // 
+            this.alerttext.AutoSize = true;
+            this.alerttext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.alerttext.Location = new System.Drawing.Point(3, 7);
+            this.alerttext.Name = "alerttext";
+            this.alerttext.Size = new System.Drawing.Size(126, 15);
+            this.alerttext.TabIndex = 0;
+            this.alerttext.Text = "Placeholder Alert Text";
+            // 
+            // closealertbtn
+            // 
+            this.closealertbtn.Image = ((System.Drawing.Image)(resources.GetObject("closealertbtn.Image")));
+            this.closealertbtn.Location = new System.Drawing.Point(271, 7);
+            this.closealertbtn.Name = "closealertbtn";
+            this.closealertbtn.Size = new System.Drawing.Size(15, 15);
+            this.closealertbtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closealertbtn.TabIndex = 1;
+            this.closealertbtn.TabStop = false;
+            // 
             // Loader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Controls.Add(this.alertbox);
             this.Controls.Add(this.chatbtn);
             this.Controls.Add(this.versionlabel);
             this.Controls.Add(this.csgonotrunning);
@@ -180,6 +219,9 @@ namespace OTCLoader
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chatbtn)).EndInit();
+            this.alertbox.ResumeLayout(false);
+            this.alertbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closealertbtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +236,8 @@ namespace OTCLoader
         private System.Windows.Forms.Label csgonotrunning;
         private System.Windows.Forms.Label versionlabel;
         internal System.Windows.Forms.PictureBox chatbtn;
+        private Guna.UI2.WinForms.Guna2Panel alertbox;
+        private System.Windows.Forms.PictureBox closealertbtn;
+        internal System.Windows.Forms.Label alerttext;
     }
 }

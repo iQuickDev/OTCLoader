@@ -35,10 +35,11 @@ namespace OTCLoader
             this.newversion = new System.Windows.Forms.Label();
             this.updatebtn = new Guna.UI2.WinForms.Guna2Button();
             this.updatepostponer = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.folderselector = new System.Windows.Forms.PictureBox();
             this.installationfolder = new System.Windows.Forms.Label();
+            this.updatefolderselector = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.folderselector)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -89,6 +90,7 @@ namespace OTCLoader
             this.updatebtn.CustomImages.ImageOffset = new System.Drawing.Point(0, -15);
             this.updatebtn.CustomImages.ImageSize = new System.Drawing.Size(50, 50);
             this.updatebtn.CustomImages.Parent = this.updatebtn;
+            this.updatebtn.Enabled = false;
             this.updatebtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(120)))), ((int)(((byte)(237)))));
             this.updatebtn.Font = new System.Drawing.Font("Lucida Sans Unicode", 27.75F, System.Drawing.FontStyle.Bold);
             this.updatebtn.ForeColor = System.Drawing.Color.Transparent;
@@ -118,15 +120,15 @@ namespace OTCLoader
             this.updatepostponer.TabIndex = 37;
             this.updatepostponer.Text = "[Postpone Update]";
             // 
-            // pictureBox2
+            // folderselector
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(35, 164);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
+            this.folderselector.Image = ((System.Drawing.Image)(resources.GetObject("folderselector.Image")));
+            this.folderselector.Location = new System.Drawing.Point(35, 164);
+            this.folderselector.Name = "folderselector";
+            this.folderselector.Size = new System.Drawing.Size(40, 40);
+            this.folderselector.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.folderselector.TabIndex = 38;
+            this.folderselector.TabStop = false;
             // 
             // installationfolder
             // 
@@ -145,7 +147,7 @@ namespace OTCLoader
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Controls.Add(this.installationfolder);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.folderselector);
             this.Controls.Add(this.updatepostponer);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.newversion);
@@ -154,7 +156,7 @@ namespace OTCLoader
             this.Name = "Updater";
             this.Size = new System.Drawing.Size(300, 350);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.folderselector)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +169,8 @@ namespace OTCLoader
         private System.Windows.Forms.Label newversion;
         private Guna.UI2.WinForms.Guna2Button updatebtn;
         private System.Windows.Forms.Label updatepostponer;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox folderselector;
         private System.Windows.Forms.Label installationfolder;
+        private System.Windows.Forms.FolderBrowserDialog updatefolderselector;
     }
 }

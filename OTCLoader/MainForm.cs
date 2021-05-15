@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DiscordRPC;
 using System.Threading;
 using System.Media;
+using System.Security.Cryptography;
 
 namespace OTCLoader
 {
@@ -94,6 +95,7 @@ namespace OTCLoader
             SettingsSelector.Click += OnOptionClick;
             OnOptionClick(LoaderSelector, null);
 
+            TitleChanger();
             ConnectionChecker();
             UpdateLoader();
             RPCSet();
@@ -335,6 +337,15 @@ namespace OTCLoader
                 LoggerUpdater();
 
             }).Start();
+        }
+
+        internal void TitleChanger()
+        {
+            byte[] bytes = new byte[16];
+            var rng = new RNGCryptoServiceProvider();
+            rng.GetBytes(bytes);
+            var convertedBytes = BitConverter.ToString(bytes);
+            this.Text = convertedBytes;
         }
 
         internal void OnOptionClick(object sender, EventArgs e)

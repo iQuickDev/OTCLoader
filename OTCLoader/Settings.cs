@@ -15,6 +15,7 @@ namespace OTCLoader
             usernamesetter.Click += usernamesetter_ClickAsync;
             thememode.Checked = Properties.Settings.Default.lightmode;
             injectiondelay.Text = Properties.Settings.Default.injectiondelay.ToString();
+            usernamefield.Text = Properties.Settings.Default.username;
         }
 
         internal void injectiondelay_TextChanged(object sender, EventArgs e)

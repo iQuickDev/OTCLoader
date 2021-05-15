@@ -44,7 +44,7 @@ namespace OTCLoader
                 Properties.Settings.Default.Save();
             }
 
-            //DISCORD WEBHOOK (uncomment if you have a webhook on discord)
+            //DISCORD WEBHOOK(uncomment if you have a webhook on discord)
 
             //if (!Properties.Settings.Default.firstlaunch)
             //{
